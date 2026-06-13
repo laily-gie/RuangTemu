@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #fdfae7;
+    color: #1a1a1a;
+}
+
+.top-bar {
+    background-color: #c2f1eb;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #1a1a1a;
+    color: #1a1a1a;
+}
+
+.navbar .logo {
+    font-family: 'EB Garamond', serif;
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+    padding: 10px 15px;
+    color: #1a1a1a;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffb7ce;
+}
+
+.navbar-nav .nav-item .nav-link.active {
+    border: 2px solid #1a1a1a;
+    padding: 10px 24px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    font-weight: 800;
+    box-shadow: 2px 2px 0px #1a1a1a;
+    color: #1a1a1a;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.hero-title .highlight {
+    background-color: #ffb7ce;
+    padding: 0 10px;
+    border: 2px solid #1a1a1a;
+    display: inline-block;
+}
+
+.table-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.table-card {
+    background-color: #ffffff;
+    border: 2px solid #1a1a1a;
+    border-radius: 16px;
+    box-shadow: 4px 4px 0px #1a1a1a;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    text-align: left;
+    height: 100%;
+}
+
+.table-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 6px 6px 0px #1a1a1a;
+}
+
+.table-card .card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #1a1a1a;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+.table-card .card-footer-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    width: 100%;
+    gap: 10px;
+}
+
+.table-card .status-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c2f1eb;
+    color: #1a1a1a;
+    border: 2px solid #1a1a1a;
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    height: 42px;
+    white-space: nowrap;
+    box-shadow: none;
+}
+
+.table-card a.btn-card, 
+.table-card .btn-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    border: 2px solid #1a1a1a;
+    padding: 8px 16px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0px #1a1a1a;
+    transition: all 0.2s;
+    height: 42px;
+    white-space: nowrap;
+}
+
+.table-card a.btn-card:hover, 
+.table-card .btn-card:hover {
+    background-color: #ffb7ce;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px #1a1a1a;
+    color: #1a1a1a;
+}
+
+.-form {
+    background-color: #ffffff;
+    border: 2px solid #1a1a1a;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 6px 6px 0px #1a1a1a;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.-form input[type="text"],
+.-form input[type="email"],
+.-form input[type="date"],
+.-form select,
+.-form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    color: #1a1a1a;
+    background-color: #faf9f5;
+    border: 2px solid #1a1a1a;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.-form input:focus,
+.-form select:focus,
+.-form textarea:focus {
+    background-color: #ffffff;
+    box-shadow: 3px 3px 0px #1a1a1a;
+    transform: translate(-2px, -2px);
+}
+
+.time-grid-container {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+.time-grid-container.aktif {
+    display: flex;
+}
+
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.slot-btn {
+    padding: 12px;
+    background-color: #faf9f5;
+    border: 2px solid #1a1a1a;
+    border-radius: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.slot-btn:hover {
+    background-color: #ffb7ce;
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0px #1a1a1a;
+}
+
+.slot-btn.selected {
+    background-color: #c2f1eb;
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0px #1a1a1a;
+}
+
+.slot-btn.booked {
+    background-color: #e2e8f0;
+    color: #94a3b8;
+    border-color: #cbd5e1;
+    pointer-events: none;
+    text-decoration: line-through;
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    background-color: #c2f1eb;
+    color: #1a1a1a;
+    border: 2px solid #1a1a1a;
+    padding: 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 3px 3px 0px #1a1a1a;
+}
+
+.btn-submit:hover {
+    background-color: #ffb7ce;
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 0px #1a1a1a;
+}
+
+.btn-main {
+    background-color: #c2f1eb;
+    box-shadow: 4px 4px 0px #1a1a1a;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+}
+
+.btn-main:hover {
+    background-color: #ffb7ce;
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0px #1a1a1a;
+}
+
+.card-text-justify {
+    text-align: justify;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.custom-footer {
+    color: #1a1a1a;
+}

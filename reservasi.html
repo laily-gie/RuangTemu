@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>RuangTemu - Formulir Reservasi Ruangan</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <div class="top-bar py-2 text-center">
+            <p>Tempat terbaik untuk bertemu, berdiskusi, dan berkolaborasi untuk ide-ide besar</p>
+        </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-2 border-dark sticky-top px-4 py-3">
+        <div class="container-fluid">
+            <a href="index.html" class="logo navbar-brand fw-bold fs-2 m-0 text-dark">RuangTemu</a> 
+            <button class="navbar-toggler border-2 border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="nav-links navbar-nav gap-2 mt-3 mt-lg-0">
+                    <a class="nav-link text-dark" href="index.html">Beranda</a>
+                    <a class="nav-link text-dark" href="ruang.html">Ruangan</a>
+                    <a class="nav-link text-dark" href="riwayat.html">Riwayat Reservasi</a>
+                    <a class="nav-link active fw-bold text-dark" href="reservasi.html">Reservasi Ruangan</a>
+                </ul>
+            </div>
+        </div>
+     </nav>
+
+        <main class="form-container container my-5">
+            <div class="form-header text-center mb-4">
+                <h2>Formulir Reservasi Ruangan</h2>
+                <p class="text-secondary">Isi data di bawah ini dengan lengkap untuk mengamankan jadwal ruang rapat Anda.</p>
+            </div>
+
+            <form action="#" method="POST" class="-form mx-auto" id="form-reservasi">
+                <div class="form-group mb-3">
+                    <label for="nama">Nama Lengkap Pemesan</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="email">Alamat Email</label>
+                    <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="pilihan-ruangan">Pilih Ruangan Rapat</label>
+                    <select id="pilihan-ruangan" name="ruangan" required>
+                        <option value="" disabled selected>-- Pilih Ruangan --</option>
+                        <option value="ruang1">Ruangan 1 (Kapasitas 16 Orang)</option>
+                        <option value="ruang2">Ruangan 2 (Kapasitas 14 Orang)</option>
+                        <option value="ruang3">Ruangan 3 (Kapasitas 12 Orang)</option>
+                        <option value="ruang4">Ruangan 4 (Kapasitas 13 Orang)</option>
+                        <option value="ruang5">Ruangan 5 (Kapasitas 9 Orang)</option>
+                        <option value="ruang6">Ruangan 6 (Kapasitas 11 Orang)</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="tanggal">Tanggal Rapat</label>
+                    <input type="date" id="tanggal" name="tanggal" required>
+                </div>
+
+                <div class="form-group time-grid-container mb-3" id="waktu-container">
+                    <label>Pilih Slot Waktu Yang Tersedia (Bisa Pilih Beberapa Jam Sekaligus)</label>
+                    <div class="time-slots" id="jadwal-grid"></div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="catatan">Catatan / Fasilitas Tambahan (Opsional)</label>
+                    <textarea id="catatan" name="catatan" rows="4" placeholder="Contoh: Request papan tulis tambahan, proyektor, atau minuman..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane me-1"></i> Konfirmasi & Pesan Ruangan</button>
+            </form>
+        </main>
+    </div>
+
+    <footer class="custom-footer text-center bg-white border-top border-2 border-dark py-4 mt-5">
+        <div class="container">
+            <h3 class="fw-bold mb-2">RuangTemu</h3>
+            <p class="text-muted small mb-3">&copy; Copyrights 2026. All Rights Reserved</p>
+            <div class="d-flex justify-content-center gap-3 fs-4">
+                <a href="#" class="text-dark text-decoration-none"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-dark text-decoration-none"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/reservasi.js"></script>
+</body>
+</html>

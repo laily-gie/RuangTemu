@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>RuangTemu - Riwayat Reservasi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <div class="top-bar py-2 text-center">
+            <p>Tempat terbaik untuk bertemu, berdiskusi, dan berkolaborasi untuk ide-ide besar</p>
+        </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-2 border-dark sticky-top px-4 py-3">
+        <div class="container-fluid">
+            <a href="index.html" class="logo navbar-brand fw-bold fs-2 m-0 text-dark">RuangTemu</a> 
+            <button class="navbar-toggler border-2 border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="nav-links navbar-nav gap-2 mt-3 mt-lg-0">
+                    <a class="nav-link text-dark" href="index.html">Beranda</a>
+                    <a class="nav-link text-dark" href="ruang.html">Ruangan</a>
+                    <a class="nav-link ctive fw-bold text-dark" href="riwayat.html">Riwayat Reservasi</a>
+                    <a class="nav-link text-dark" href="reservasi.html">Reservasi Ruangan</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+        <main class="form-container container my-5" style="max-width: 1000px;">
+            <div class="form-header text-center mb-5">
+                <h2>Riwayat Reservasi Anda</h2>
+                <p class="text-secondary">Berikut adalah daftar ruangan yang berhasil Anda pesan sebelumnya.</p>
+            </div>
+
+            <div id="konten-riwayat"></div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderRiwayat();
+        });
+
+        function renderRiwayat() {
+        const kontenRiwayat = document.getElementById("konten-riwayat");
+
+            if (kontenRiwayat) {
+            let daftarReservasi = JSON.parse(localStorage.getItem("dataReservasi")) || [];
+
+            if (daftarReservasi.length === 0) {
+                kontenRiwayat.innerHTML = `
+                    <div class="text-center p-5 bg-white border border-2 border-dark rounded-4" style="box-shadow: 4px 4px 0px #1a1a1a;">
+                        <p class="text-secondary fw-bold m-0">Belum ada riwayat reservasi ruangan.</p>
+                    </div>`;
+            return; 
+            }
+
+        let htmlKonten = '<div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">';
+
+        for (let i = 0; i < daftarReservasi.length; i++) {
+            let data = daftarReservasi[i];
+
+            htmlKonten += `
+                <div class="col">
+                    <div class="table-card p-3 p-md-4 h-100 bg-white border border-2 border-dark rounded-4 d-flex flex-column" style="box-shadow: 4px 4px 0px #1a1a1a;">
+                        
+                        <div class="w-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-dark text-white px-2 py-1" style="font-size: 10px; letter-spacing: 0.5px;">BERHASIL DI-BOOKING</span>
+                                <span class="fw-bold text-danger small">${data.id}</span>
+                            </div>
+                            
+                            <strong class="fs-4 d-block mb-3 text-dark">${data.ruangan}</strong>
+                            
+                            <div class="text-dark mb-3 small">
+                                <p class="mb-1"><strong>👤 Pemesan:</strong> ${data.nama}</p>
+                                <p class="mb-1"><strong>📅 Tanggal:</strong> ${data.tanggal}</p>
+                                <p class="mb-0"><strong>⏰ Waktu:</strong> ${data.durasi}</p>
+                            </div>
+                            
+                            <div class="text-secondary small fst-italic p-2 bg-light border border-2 border-dark rounded-3 mb-4">
+                                <strong>Catatan:</strong> ${data.catatan || '-'}
+                            </div>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <button onclick="batalkanReservasi(${i})" class="btn btn-danger w-100 border border-2 border-dark fw-bold text-uppercase rounded-pill py-2" style="box-shadow: 2px 2px 0px #1a1a1a; font-size: 12px;">
+                                <i class="fa-solid fa-trash-can me-1"></i> Batalkan Reservasi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        htmlKonten += '</div>';
+        kontenRiwayat.innerHTML = htmlKonten;
+        }
+    }
+
+        function batalkanReservasi(index) {
+            if (confirm("Apakah Anda yakin ingin membatalkan jadwal reservasi ruangan ini?")) {
+                let daftarReservasi = JSON.parse(localStorage.getItem("dataReservasi")) || [];
+                daftarReservasi.splice(index, 1);
+                localStorage.setItem("dataReservasi", JSON.stringify(daftarReservasi));
+                renderRiwayat();
+            }
+        }
+    </script>
+</body>
+</html>
